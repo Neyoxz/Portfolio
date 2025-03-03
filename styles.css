@@ -1,0 +1,232 @@
+/* styles.css */
+html {
+    scroll-behavior: smooth; /* Adiciona scroll suave */
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #1d1d1f;
+    background-color: #f5f5f7;
+    line-height: 1.6;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Círculo futurista no fundo */
+body::after {
+    content: "";
+    position: fixed;
+    top: 50%;
+    right: -200px;
+    transform: translateY(-50%);
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0) 70%);
+    border-radius: 50%;
+    z-index: -1;
+    opacity: 0.8;
+}
+
+/* Fundo fixo com o personagem do Roblox */
+body::before {
+    content: "";
+    background-image: url('Assets/Character.png');
+    background-size: contain;
+    background-position: right center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    opacity: 0.2;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+header {
+    background: #fff;
+    color: #1d1d1f;
+    padding: 40px 0;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 1;
+}
+
+header .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+header .logo {
+    width: 50px;
+    margin-right: 15px;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5em;
+    font-weight: 600;
+    letter-spacing: -1px;
+    color: #1d1d1f;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    position: relative;
+    z-index: 1;
+}
+
+section {
+    padding: 80px 0;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+section h2 {
+    font-size: 2.5em;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #1d1d1f;
+    animation: fadeIn 2s ease-in-out;
+}
+
+section p {
+    font-size: 1.2em;
+    color: #666;
+    max-width: 800px;
+    margin: 0 auto;
+    animation: fadeIn 2.5s ease-in-out;
+}
+
+.sobre-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.sobre-content .yan-image {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.texto {
+    text-align: center;
+}
+
+.idade {
+    font-size: 1.5em;
+    color: #666;
+    animation: fadeIn 1s ease-in-out;
+}
+
+.nome {
+    font-size: 2.5em;
+    font-weight: 600;
+    color: #1d1d1f;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+.descricao {
+    font-size: 1.2em;
+    color: #666;
+    margin: 20px 0;
+    animation: fadeIn 2s ease-in-out;
+}
+
+.habilidades {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+    text-align: left;
+    display: inline-block;
+    animation: fadeIn 2.5s ease-in-out;
+}
+
+.habilidades li {
+    font-size: 1.1em;
+    color: #666;
+    margin: 10px 0;
+}
+
+.destaque {
+    font-weight: 600;
+    color: #1d1d1f;
+}
+
+.projeto {
+    background: #fff;
+    padding: 20px;
+    margin: 20px auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    opacity: 0; /* Inicialmente invisível */
+    transform: translateY(20px); /* Inicialmente deslocado para baixo */
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.projeto.visible {
+    opacity: 1; /* Torna visível */
+    transform: translateY(0); /* Retorna à posição original */
+}
+
+.projeto:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+}
+
+.projeto-video {
+    width: 100%;
+    border-radius: 12px;
+    margin-bottom: 15px;
+}
+
+footer {
+    background: #fff;
+    color: #1d1d1f;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 60px;
+    box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 1;
+}
+
+footer p {
+    margin: 0;
+    font-size: 0.9em;
+}
+
+/* Animação de fadeIn */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}

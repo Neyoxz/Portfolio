@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Portfólio</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <img src="Assets/Logo.png" alt="Logo" class="logo">
+            <h1>Meu Portfólio</h1>
+        </div>
+    </header>
+
+    <section id="sobre">
+        <div class="container">
+            <div class="sobre-content">
+                <img src="Assets/YanImage.webp" alt="Yan" class="yan-image">
+                <div class="texto">
+                    <h2>Sobre Mim</h2>
+                    <p class="idade">18 anos</p>
+                    <p class="nome">Yan</p>
+                    <p class="descricao">
+                        Sou um <span class="destaque">programador nível avançado</span>, com experiência de <span class="destaque">5 anos</span> em criação de scripts no Roblox Studio. Meu forte é a programação, e ao longo desses anos, desenvolvi habilidades sólidas em:
+                    </p>
+                    <ul class="habilidades">
+                        <li><span class="destaque">Animação</span> - Nível mediano</li>
+                        <li><span class="destaque">Modelagem</span> - Nível mediano</li>
+                        <li><span class="destaque">UI Design</span> - Nível mediano-avançado</li>
+                        <li><span class="destaque">Building</span> - Nível mediano</li>
+                    </ul>
+                    <p class="descricao">
+                        Minha paixão é criar soluções inovadoras e elegantes, transformando ideias em realidade através de scripts e sistemas interativos.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projetos">
+        <div class="container">
+            <div class="projeto">
+                <video class="projeto-video" muted loop>
+                    <source src="Assets/Projeto1.mp4" type="video/mp4">
+                    <source src="Assets/Projeto1.webm" type="video/webm">
+                    <source src="Assets/Projeto1.ogg" type="video/ogg">
+                    Seu navegador não suporta o vídeo.
+                </video>
+                <p>Um lobby futurista e imersivo, projetado para oferecer uma experiência única com personalização completa de personagens, onde os jogadores podem explorar um ambiente moderno enquanto ajustam cada detalhe de seu avatar.</p>
+            </div>
+            <div class="projeto">
+                <video class="projeto-video" muted loop>
+                    <source src="Assets/Projeto2.mp4" type="video/mp4">
+                    <source src="Assets/Projeto2.webm" type="video/webm">
+                    <source src="Assets/Projeto2.ogg" type="video/ogg">
+                    Seu navegador não suporta o vídeo.
+                </video>
+                <p>Um cenário totalmente realista, meticulosamente projetado e construído por mim, oferecendo uma imersão completa em cada detalhe e ambiente.</p>
+            </div>
+            <div class="projeto">
+                <video class="projeto-video" muted loop>
+                    <source src="Assets/Projeto3.mp4" type="video/mp4">
+                    <source src="Assets/Projeto3.webm" type="video/webm">
+                    <source src="Assets/Projeto3.ogg" type="video/ogg">
+                    Seu navegador não suporta o vídeo.
+                </video>
+                <p>Sistema de painel interativo por clique, integrado a uma aeronave, permitindo aos jogadores uma experiência dinâmica e controlada diretamente pelos controles do painel.</p>
+            </div>
+            <div class="projeto">
+                <video class="projeto-video" muted loop>
+                    <source src="Assets/Projeto4.mp4" type="video/mp4">
+                    <source src="Assets/Projeto4.webm" type="video/webm">
+                    <source src="Assets/Projeto4.ogg" type="video/ogg">
+                    Seu navegador não suporta o vídeo.
+                </video>
+                <p>Um jogo com gráficos cartoonescos no estilo Roblox, com uma ambientação cuidadosamente regulada para garantir uma experiência divertida e envolvente.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Meu Portfólio</p>
+    </footer>
+
+    <script>
+        // Função para observar os vídeos e tocar/pausar conforme a visibilidade
+        function observeVideos() {
+            const videos = document.querySelectorAll('.projeto-video');
+
+            const observerOptions = {
+                root: null, // Observa a viewport
+                rootMargin: '0px',
+                threshold: 0.5 // 50% do vídeo precisa estar visível
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    const video = entry.target;
+                    if (entry.isIntersecting) {
+                        video.play(); // Toca o vídeo quando ele está visível
+                    } else {
+                        video.pause(); // Pausa o vídeo quando ele não está visível
+                    }
+                });
+            }, observerOptions);
+
+            // Observa cada vídeo
+            videos.forEach(video => {
+                observer.observe(video);
+            });
+        }
+
+        // Função para animar os projetos ao entrarem na viewport
+        function animateProjectsOnScroll() {
+            const projetos = document.querySelectorAll('.projeto');
+
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.3 // 30% do elemento precisa estar visível
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible'); // Adiciona a classe 'visible' para animar
+                    }
+                });
+            }, observerOptions);
+
+            // Observa cada projeto
+            projetos.forEach(projeto => {
+                observer.observe(projeto);
+            });
+        }
+
+        // Inicia a observação dos vídeos e projetos quando a página carrega
+        document.addEventListener('DOMContentLoaded', () => {
+            observeVideos();
+            animateProjectsOnScroll();
+        });
+    </script>
+</body>
+</html>
